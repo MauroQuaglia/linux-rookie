@@ -1,0 +1,8 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/bullseye64"
+
+  config.vm.define('vagrant-linux') do |current|
+    current.vm.network('forwarded_port', id: 'ssh', guest: 22, host: 2222, auto_correct: false)
+    current.vm.hostname = 'vagrant-linux'
+  end
+end

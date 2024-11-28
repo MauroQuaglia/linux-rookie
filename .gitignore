@@ -1,2 +1,4 @@
 /.idea
 /vm/*
+/_pdf
+/ansible/.vagrant
