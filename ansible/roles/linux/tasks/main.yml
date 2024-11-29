@@ -6,19 +6,25 @@
     autoremove: true
     purge: true
 
-#- name: "Copy docker daemon configuration"
-#  copy:
-#    src: "daemon.json"
-#    dest: "/etc/docker/daemon.json"
-#    owner: "root"
-#    group: "root"
-#    mode: "0600"
-#
-#- name: "Create '/home/vagrant/.docker' directory for vagrant user"
-#  file:
-#    path: "/home/vagrant/.docker"
-#    state: "directory"
-#    owner: "vagrant"
-#    group: "docker"
-#    mode: "0700"
+- name: "Copy custom profile files for vagrant user"
+  tags: "config"
+  copy:
+    src: "custom/{{ item }}"
+    dest: "/home/vagrant"
+    owner: "vagrant"
+    group: "vagrant"
+    mode: "0644"
+  loop:
+    - ".bash_logout"
+    - ".bashrc"
+    - ".profile"
+
+- name: "Copy custom sudoers file for vagrant user"
+  tags: "config"
+  copy:
+    src: "custom/sudoers"
+    dest: "/etc/sudoers.d/vagrant"
+    owner: "root"
+    group: "root"
+    mode: "0440"
 ...

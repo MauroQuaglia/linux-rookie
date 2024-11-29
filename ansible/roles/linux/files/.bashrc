@@ -111,3 +111,11 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# CUSTOM
+# umask
+# Quando viene creato un file, viene creato con 666
+# Quando viene creata una directory, viene creata con 777
+# L'umask serve per sottrarre privilegi. Esempio 666 - 002 = 664
+# Il primo numero, per ora ignoriamolo
+umask 0002

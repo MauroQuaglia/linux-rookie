@@ -1,0 +1,7 @@
+#utente: vagrant
+#ALL: su tutti gli host
+#(ALL): può eseguire comandi come qualsiasi utente, root incluso
+#NOPASSWD: non deve inserire la password quando utilizza il comando sudo
+#ALL: può eseguire qualsiasi comando con sudo, compreso il comando su
+
+vagrant ALL=(ALL) NOPASSWD:ALL
