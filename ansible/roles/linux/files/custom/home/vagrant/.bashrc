@@ -1,4 +1,4 @@
-echo "Sono nel file .bashrc - shell level: ${SHLVL}"
+echo "Sono nel file ~/.bashrc - shell level: ${SHLVL}"
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -113,6 +113,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 
 # CUSTOM
 # umask

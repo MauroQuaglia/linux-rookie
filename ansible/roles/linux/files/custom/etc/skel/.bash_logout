@@ -1,4 +1,4 @@
-echo "Sono nel file .bash_logout - shell level: ${SHLVL}"
+echo "Sono nel file ~/.bash_logout - shell level: ${SHLVL}"
 
 # ~/.bash_logout: executed by bash(1) when login shell exits.
 

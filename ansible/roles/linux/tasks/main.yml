@@ -6,10 +6,24 @@
     autoremove: true
     purge: true
 
-- name: "Copy custom profile files for vagrant user"
+- name: "Copy files for /etc/skel: skeleton for new users home directory"
   tags: "config"
   copy:
-    src: "custom/{{ item }}"
+    src: "custom/etc/skel/{{ item }}"
+    dest: "/etc/skel"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  loop:
+    - ".bash_history"
+    - ".bash_logout"
+    - ".bashrc"
+    - ".profile"
+
+- name: "Copy custom profile files for vagrant user (that already exists)"
+  tags: "config"
+  copy:
+    src: "custom/home/vagrant/{{ item }}"
     dest: "/home/vagrant"
     owner: "vagrant"
     group: "vagrant"
@@ -22,7 +36,7 @@
 - name: "Copy custom sudoers file for vagrant user"
   tags: "config"
   copy:
-    src: "custom/sudoers"
+    src: "custom/etc/sudoers.d/vagrant"
     dest: "/etc/sudoers.d/vagrant"
     owner: "root"
     group: "root"
