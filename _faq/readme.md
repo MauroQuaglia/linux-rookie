@@ -2,7 +2,7 @@
 * Se sono nei sudoers per cmd: `sudo [cmd]` (`sudo -u xpuser [cmd]`)
 * Altrimenti provo a diventare root e poi a eseguire il comando: `sudo su - root` (`sudo -u xpuser su - root`)
 
-# Creazione di un utente (esempi)
+# Creazione di un utente e gruppo (esempi)
 * Il `man adduser` è sempre illuminante.
 * `adduser` -> più interattivo e user friendly.
   *  `adduser --gid 2000 --disabled-password --gecos "Pippo User" pippo`
@@ -14,3 +14,12 @@
 * Altro esempio minimale: 
   * `useradd --uid 3003 --gid 2000 xio`
   * Non ho ne home, ne password, infatti in `/etc/shadow` c'è `xio:!:...`
+* Oppure:
+  * Da (man groupadd): `groupadd --gid 1789 dockergroup`
+  * Da (man useradd): `useradd --uid 2011 --gid 1789 dockeruser`
+  * Altrimenti, ancora più minimal:
+    * `groupadd dockergroup`
+    * `useradd -g dockergroup dockeruser`
+
+# Per aggiungere un utente a un gruppo
+* Esempio: `# usermod -a -G finance vagrant`

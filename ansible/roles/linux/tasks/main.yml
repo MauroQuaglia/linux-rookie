@@ -20,7 +20,7 @@
     - ".bashrc"
     - ".profile"
 
-- name: "Copy custom profile files for vagrant user (that already exists)"
+- name: "Copy files for /home/vagrant: home for vagrant user"
   tags: "config"
   copy:
     src: "custom/home/vagrant/{{ item }}"
@@ -33,7 +33,7 @@
     - ".bashrc"
     - ".profile"
 
-- name: "Copy custom sudoers file for vagrant user"
+- name: "Copy files for /etc/sudoers.d/vagrant: vagrant as sudoer"
   tags: "config"
   copy:
     src: "custom/etc/sudoers.d/vagrant"
