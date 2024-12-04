@@ -1,0 +1,8 @@
+# docker compose up -d
+# docker compose exec debian bash
+# docker container diff debby
+services:
+  debian:
+    image: 'debian:latest'
+    command: 'sleep infinity'
+    container_name: 'debby'

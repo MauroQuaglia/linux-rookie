@@ -23,3 +23,18 @@
 
 # Per aggiungere un utente a un gruppo
 * Esempio: `# usermod -a -G finance vagrant`
+
+# Altro esempio:
+* `useradd mauro`
+* file coinvolti a livello di utente:
+```
+/etc/passwd
+/etc/shadow
+/etc/subuid
+```
+* file coinvolti a livello di gruppo:
+```
+/etc/group
+/etc/gshadow
+/etc/subgid
+```
