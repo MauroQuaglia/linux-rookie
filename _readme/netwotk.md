@@ -31,22 +31,3 @@ E' una funzionalità o un servizio implementato su un dispositivo che fa parte d
 DNS
 Il DNS (Domain Name System) non è un dispositivo, ma un sistema o un protocollo di rete.
 Tuttavia, il servizio DNS è fornito da un server o un dispositivo collegato alla rete.
-
-
-ESEMPIO
-```
-cat /etc/resolv.conf
-nameserver 127.0.0.53 -> sto usando un servizio di dns locale sulla mia macchina
-```
-
-```
-sudo netstat -tuln | grep 127.0.0.53
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN     
-udp        0      0 127.0.0.53:53           0.0.0.0:*     
-Significa che systemd-resolved è attivo.
-```
-
-La scelta di 127.0.0.53 (invece di 127.0.0.1) serve a distinguere chiaramente il servizio DNS locale gestito da systemd-resolved da altre potenziali applicazioni o servizi che potrebbero essere configurati per ascoltare su 127.0.0.1:53.
-
-Quindi per vedere gli indirizzi del DNS bisogna guardare il file del servizio del systemd-resolved: `/etc/systemd/resolved.conf`.
-Se poi faccio `nslookup` dell'ip dei serever dns, vedo anche come si chiamano.

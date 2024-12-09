@@ -1,0 +1,28 @@
+---
+- name: "Update DNS resolver"
+  become: true
+  copy:
+    src: "files/resolved.conf"
+    dest: "/etc/systemd"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+    force: true
+
+- name: "Create symbolic: /etc/resolv.conf -> /run/systemd/resolve/stub-resolv.conf"
+  become: true
+  file:
+    src: "/run/systemd/resolve/stub-resolv.conf"
+    dest: "/etc/resolv.conf"
+    owner: "root"
+    group: "root"
+    state: "link"
+    force: true
+
+- name: "Enable and restart the systemd-resolved"
+  become: true
+  service:
+    name: "systemd-resolved"
+    enabled: true
+    state: "restarted"
+...
