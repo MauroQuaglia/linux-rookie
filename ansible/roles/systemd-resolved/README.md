@@ -18,7 +18,7 @@ Il servizio `systemd-resolved` è già incluso nella libreria `systemd` installt
 # Riassumendo
 * Primo passo:
   * `/etc/systemd/resolved.conf`
-  * La configurazione del servizio che contiene i DNS: `DNS=8.8.8.8`
+  * La configurazione del servizio che contiene i DNS: `DNS=8.8.8.8 1.1.1.1`
 
 * Secondo passo:
   * `/etc/resolv.conf -> /run/systemd/resolve/stub-resolv.conf`
