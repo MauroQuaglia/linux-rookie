@@ -9,7 +9,7 @@
 - name: "Copy sshd_config"
   become: true
   copy:
-    src: "files/sshd_config"
+    src: "files/custom/sshd_config"
     dest: "/etc/ssh"
     owner: "root"
     group: "root"
