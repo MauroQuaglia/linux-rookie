@@ -5,6 +5,7 @@
   become: true
 
   roles:
-    - role: "linux"
+    #- role: "linux"
     - role: "systemd-resolved"
+    - role: "openssh"
 ...

@@ -1,0 +1,25 @@
+---
+- name: "Install required packages"
+  apt:
+    update_cache: true
+    name:
+      - "openssh-client"
+      - "openssh-server"
+
+- name: "Copy sshd_config"
+  become: true
+  copy:
+    src: "files/sshd_config"
+    dest: "/etc/ssh"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+    force: true
+
+- name: "Restart sshd"
+  become: true
+  service:
+    name: "sshd"
+    enabled: true
+    state: "restarted"
+...
