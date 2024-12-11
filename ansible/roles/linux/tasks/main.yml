@@ -9,13 +9,12 @@
 - name: "Copy files for /etc/skel: skeleton for new users home directory"
   tags: "config"
   copy:
-    src: "custom/etc/skel/{{ item }}"
+    src: "files/{{ linux_files }}/etc/skel/{{ item }}"
     dest: "/etc/skel"
     owner: "root"
     group: "root"
     mode: "0644"
   loop:
-    - ".bash_history"
     - ".bash_logout"
     - ".bashrc"
     - ".profile"
@@ -23,7 +22,7 @@
 - name: "Copy files for /home/vagrant: home for vagrant user"
   tags: "config"
   copy:
-    src: "custom/home/vagrant/{{ item }}"
+    src: "files/{{ linux_files }}/home/vagrant/{{ item }}"
     dest: "/home/vagrant"
     owner: "vagrant"
     group: "vagrant"
@@ -36,7 +35,7 @@
 - name: "Copy files for /etc/sudoers.d/vagrant: vagrant as sudoer"
   tags: "config"
   copy:
-    src: "custom/etc/sudoers.d/vagrant"
+    src: "{{ linux_files }}/etc/sudoers.d/vagrant"
     dest: "/etc/sudoers.d/vagrant"
     owner: "root"
     group: "root"

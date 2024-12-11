@@ -5,7 +5,22 @@
   become: true
 
   roles:
-    #- role: "linux"
-    - role: "systemd-resolved"
-    - role: "openssh"
+    - {
+      role: "linux",
+      linux_files: "original"
+    }
+    - {
+      role: "systemd_resolved",
+      systemd_resolved_files: "custom"
+        # NMB: Occhio che se metto i file originali poi non riesco più a rilanciare l'intero playbook
+        # perché per esempio l'aggiornamento della macchina fallisce!
+        # Giusto! Perché di default il systemd-resolved è disabilitato quindi usa un altro giro per contattare i server DNS.
+        # Se io lancio questo ruolo con il file originale che è tutto commentato, viene poi abilitato e riavviato il servizio systemd-resolved che però
+        # a questo punto non contatta nessun server DNS!
+        # Riassuemndo: il file originale c'è, ma se lo voglio usare devo scommentare qualche DNS!
+    }
+    - {
+      role: "openssh",
+      openssh_files: "original"
+    }
 ...

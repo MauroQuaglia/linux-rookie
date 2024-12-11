@@ -2,7 +2,7 @@
 - name: "Update DNS resolver"
   become: true
   copy:
-    src: "files/resolved.conf"
+    src: "files/{{ systemd_resolved_files }}/resolved.conf"
     dest: "/etc/systemd"
     owner: "root"
     group: "root"
