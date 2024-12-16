@@ -1,3 +1,4 @@
 /.idea
 /_pdf
 /ansible/.vagrant
+/ansible/disks/disk-1.vdi

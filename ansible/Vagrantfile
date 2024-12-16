@@ -5,5 +5,14 @@ Vagrant.configure("2") do |config|
     current.vm.network('forwarded_port', id: 'ssh', guest: 22, host: 2222, auto_correct: false)
     current.vm.network('private_network', ip: '192.168.56.11')
     current.vm.hostname = 'vagrant-linux'
+
+    config.vm.provider "virtualbox" do |vb|
+      disk_path = "disks/disk-1.vdi"
+      unless File.exist?(disk_path)
+        vb.customize ["createhd", "--filename", disk_path, "--size", 512] # 512 MB
+      end
+      # Collega il disco alla macchina virtuale
+      vb.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 1, "--device", 0, "--type", "hdd", "--medium", disk_path]
+    end
   end
 end
