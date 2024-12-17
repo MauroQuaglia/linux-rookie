@@ -1,7 +1,7 @@
 ---
 - name: "Install required packages"
   apt:
-    #update_cache: true
+    update_cache: true
     name:
       - "openssh-client"
       - "openssh-server"

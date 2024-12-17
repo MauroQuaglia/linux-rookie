@@ -6,6 +6,12 @@
     autoremove: true
     purge: true
 
+- name: "Install required packages"
+  apt:
+    update_cache: true
+    name:
+      - "lvm2"# Volumes commands: pvcreate, ...
+
 - name: "Copy files for /etc/skel: skeleton for new users home directory"
   tags: "config"
   copy:
