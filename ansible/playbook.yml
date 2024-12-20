@@ -23,4 +23,7 @@
       role: "openssh",
       openssh_files: "original"
     }
+    - {
+      role: "tmp.mount"
+    }
 ...

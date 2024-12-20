@@ -1,0 +1,23 @@
+---
+- name: "Copy tmp.mount"
+  become: true
+  copy:
+    src: "files/tmp.mount"
+    dest: "/etc/systemd/system/"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+    force: true
+
+- name: "Force systemd to read config"
+  become: true
+  systemd:
+    daemon_reload: true
+
+- name: "Enable and restart tmp.mount service"
+  become: true
+  service:
+    name: "tmp.mount"
+    enabled: true
+    state: "restarted"
+...
