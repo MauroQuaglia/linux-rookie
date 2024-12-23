@@ -12,5 +12,5 @@ tmpfs           1.0G     0  1.0G   0% /tmpmq
 
 # tmp.mount
 * Cerco tra i file https://github.com/systemd/systemd/tree/main/units.
-* Questi file vengono forniti da Systemd e possono essere utilizzati per configurare e controllare i servizi sul tuo sistema Linux
+* Questi file vengono forniti da Systemd e possono essere utilizzati per configurare e controllare i servizi sul sistema Linux.
 * Mi prendo il https://github.com/systemd/systemd/blob/main/units/tmp.mount per il servizio che voglio installare.

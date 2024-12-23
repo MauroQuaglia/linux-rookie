@@ -10,7 +10,8 @@
   apt:
     update_cache: true
     name:
-      - "lvm2"# Volumes commands: pvcreate, ...
+      - "lvm2" # Volumes commands: pvcreate, ...
+      - "fdupes" # Pulizie varie
 
 - name: "Copy files for /etc/skel: skeleton for new users home directory"
   tags: "config"
