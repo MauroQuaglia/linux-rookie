@@ -4,3 +4,6 @@
 * [errata](https://oreilly.com/catalog/errata.csp?isbn=9781098109035)
 * [codice](https://oreil.ly/practical-linux-system-admin-code)
 * [libro](https://oreil.ly/practical-linux-system-admin)
+
+# Debian
+* https://www.debian.org/doc/manuals/debian-handbook/
