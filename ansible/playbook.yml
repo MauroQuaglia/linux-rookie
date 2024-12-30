@@ -26,4 +26,10 @@
     - {
       role: "tmp.mount"
     }
+    - {
+      role: "monitoring"
+    }
+    - {
+      role: "chrony"
+    }
 ...

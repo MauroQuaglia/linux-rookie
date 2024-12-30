@@ -1,0 +1,10 @@
+---
+- name: "Install required packages"
+  apt:
+    update_cache: true
+    name:
+      - "procps" # top
+      - "atop"
+      - "htop"
+      - "glances"
+...
