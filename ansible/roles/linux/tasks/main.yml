@@ -12,6 +12,8 @@
     name:
       - "lvm2" # Volumes commands: pvcreate, ...
       - "fdupes" # Pulizie varie
+      - "hwinfo" # Hardware  info (hwinfo --short)
+      - "lshw"   # Hardware  info (lshw -html > lshw.html)
 
 - name: "Copy files for /etc/skel: skeleton for new users home directory"
   tags: "config"
