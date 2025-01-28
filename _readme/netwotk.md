@@ -13,13 +13,19 @@ Gli indirizzi utilizzabili per i dispositivi (host) vanno da 192.168.1.1 a 192.1
 broadcast: 192.168.1.255:
 E' usato per comunicazioni a tutti i dispositivi della rete.
 
+Per conoscere poi l'indirizzo del gateway (ossia il punto do congiunzione tra rete locale e internet) posso usare il comando `ip route`:
+Supponiamo per esempio di vedere `default via 192.168.1.254`.
+Questo è il gateway!
+
 Numero di host
-Ci sono 256-2=254 indirizzi utilizzabili, sottraendo l'indirizzo di rete e quello di broadcast.
+Ci sono 256-3=254 indirizzi utilizzabili, sottraendo l'indirizzo di rete, quello di broadcast e il gateway.
+
 
 Riassunto:
 ```
 192.168.1.0 -> rete
-192.168.1.[1-254] -> host
+192.168.1.[1-253] -> host
+192.168.1.254 -> gateway
 192.168.1.255 -> broadcast
 ```
 
